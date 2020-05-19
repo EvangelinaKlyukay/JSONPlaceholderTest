@@ -16,6 +16,7 @@ class AppRoot {
     public static let shared = AppRoot()
     
     var userService: UserService
+    var albumServise: AlbumService
     
     private let network: NetworkService?
     
@@ -29,6 +30,7 @@ class AppRoot {
         }
         
         userService = UserService(network: network!)
+        albumServise = AlbumService(network: network!)
         
     }
 }

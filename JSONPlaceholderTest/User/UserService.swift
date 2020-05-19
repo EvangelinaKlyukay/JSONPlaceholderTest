@@ -18,7 +18,7 @@ class UserService {
     weak var delegate: UserServiseDelegate?
     
     private let network: NetworkService
-    private var users = [UserScreen]()
+    private var users = [User]()
     
     init(network: NetworkService) {
         self.network = network
@@ -28,7 +28,7 @@ class UserService {
             }
             
             response.forEach {
-                let user: UserScreen = UserScreen(data: $0)
+                let user: User = User(data: $0)
                 self.add(user: user)
             }
             self.delegate?.usersUpdated(sender: self)
@@ -38,15 +38,15 @@ class UserService {
         })
     }
     
-    func get(userByIndex index: Int) -> UserScreen? {
+    func get(userByIndex index: Int) -> User? {
         return users[index]
     }
     
-    func getUserCount() -> Int {
+    func userCount() -> Int {
         return users.count
     }
     
-    func add(user: UserScreen) {
+    func add(user: User) {
         users.append(user)
     }
 }

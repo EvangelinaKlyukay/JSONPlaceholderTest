@@ -15,7 +15,7 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    weak var userScreen: UserScreen? {
+    weak var userScreen: User? {
         didSet {
             nameLabel.text = userScreen?.name
             phoneLabel.text = userScreen?.phone
@@ -26,10 +26,6 @@ class UsersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        phoneLabel.isUserInteractionEnabled = true
-        websiteLabel.isUserInteractionEnabled = true
-        emailLabel.isUserInteractionEnabled = true
         
         let phoneTapRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(phoneSelected))
         phoneTapRecognizer.numberOfTapsRequired = 1
@@ -46,23 +42,15 @@ class UsersTableViewCell: UITableViewCell {
     }
     
     @objc func phoneSelected(sender:UITapGestureRecognizer) {
-        if let phone = userScreen?.phone, let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+        if let phone = userScreen?.phone, let url = URL(string: "tel://\(phone)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
     @objc func websiteSelected(sender:UITapGestureRecognizer) {
         
-        if let website = userScreen?.website, let url = URL(string: "http://\(website)"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+        if let website = userScreen?.website, let url = URL(string: "http://\(website)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     

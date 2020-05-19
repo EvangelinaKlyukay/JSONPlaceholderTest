@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserScreen {
+class User {
     
     let id: Int?
     let name: String?
@@ -16,11 +16,25 @@ class UserScreen {
     let phone: String?
     let website: String?
     
+    private var albums: [AlbumsScreen]?
+    
     init(data: [String: Any]) {
         self.id = data["id"] as? Int
         self.name = data["name"] as? String
         self.email = data["email"] as? String
         self.phone = data["phone"] as? String
         self.website = data["website"] as? String
+    }
+    
+    func set(albums: [AlbumsScreen]) {
+        self.albums = albums
+    }
+    
+    func get(albumIndex index: Int) -> AlbumsScreen? {
+        return albums?[index]
+    }
+    
+    func getAlbumsCount() -> Int {
+        return albums?.count ?? 0
     }
 }
