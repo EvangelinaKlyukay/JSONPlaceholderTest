@@ -30,7 +30,7 @@ class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let index = (sender as! IndexPath).row
-        let album = AppRoot.shared.userService.get(userByIndex: index)
+        let album = AppRoot.shared.userService.user(by: index)
         (segue.destination as! ImageTableViewController).album = album!
     }
     
