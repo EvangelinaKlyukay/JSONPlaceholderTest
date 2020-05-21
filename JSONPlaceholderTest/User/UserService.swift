@@ -38,7 +38,7 @@ class UserService {
         })
     }
     
-    func get(userByIndex index: Int) -> User? {
+    func user(by index: Int) -> User? {
         return users[index]
     }
     

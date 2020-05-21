@@ -22,7 +22,7 @@ class UsersTableViewController: UITableViewController, UserServiseDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let index = (sender as! IndexPath).row
-        let user = AppRoot.shared.userService.get(userByIndex: index)
+        let user = AppRoot.shared.userService.user(by: index)
         (segue.destination as! AlbumsTableViewController).userId = user!.id!
     }
     
@@ -38,7 +38,7 @@ class UsersTableViewController: UITableViewController, UserServiseDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let user = AppRoot.shared.userService.get(userByIndex: indexPath.row)
+        let user = AppRoot.shared.userService.user(by: indexPath.row)
         
         let userCell = dequeueUserCell(fromTableView: tableView)!
         
