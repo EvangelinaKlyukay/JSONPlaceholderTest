@@ -18,7 +18,7 @@
 		A6429A41246EC3F3008840C1 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A40246EC3F3008840C1 /* UsersTableViewCell.swift */; };
 		A6429A43246ED9A3008840C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A42246ED9A3008840C1 /* NetworkService.swift */; };
 		A6429A46246EDA10008840C1 /* AppRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A45246EDA10008840C1 /* AppRoot.swift */; };
-		A6429A4924726EA7008840C1 /* AlbumsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A4824726EA7008840C1 /* AlbumsScreen.swift */; };
+		A6429A4924726EA7008840C1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A4824726EA7008840C1 /* Album.swift */; };
 		A6429A4B2472753D008840C1 /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A4A2472753D008840C1 /* AlbumService.swift */; };
 		A6429A4D247278E9008840C1 /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A4C247278E9008840C1 /* AlbumsTableViewController.swift */; };
 		A6429A4F24729717008840C1 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6429A4E24729717008840C1 /* AlbumsTableViewCell.swift */; };
@@ -40,7 +40,7 @@
 		A6429A40246EC3F3008840C1 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		A6429A42246ED9A3008840C1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A6429A45246EDA10008840C1 /* AppRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoot.swift; sourceTree = "<group>"; };
-		A6429A4824726EA7008840C1 /* AlbumsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsScreen.swift; sourceTree = "<group>"; };
+		A6429A4824726EA7008840C1 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		A6429A4A2472753D008840C1 /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		A6429A4C247278E9008840C1 /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		A6429A4E24729717008840C1 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		A6429A4724726E46008840C1 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
-				A6429A4824726EA7008840C1 /* AlbumsScreen.swift */,
+				A6429A4824726EA7008840C1 /* Album.swift */,
 				A6429A4A2472753D008840C1 /* AlbumService.swift */,
 			);
 			path = Albums;
@@ -216,7 +216,7 @@
 				A6429A532472BD69008840C1 /* ImageTableViewController.swift in Sources */,
 				A6429A24246EBA61008840C1 /* AppDelegate.swift in Sources */,
 				A6429A26246EBA61008840C1 /* SceneDelegate.swift in Sources */,
-				A6429A4924726EA7008840C1 /* AlbumsScreen.swift in Sources */,
+				A6429A4924726EA7008840C1 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

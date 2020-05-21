@@ -19,7 +19,7 @@ class AlbumService {
     weak var dalegate: AlbumServiceDelegate?
     
     private let network: NetworkService
-    private var albums = [AlbumsScreen]()
+    private var albums = [Album]()
     
     init(network: NetworkService) {
         self.network = network
@@ -30,10 +30,10 @@ class AlbumService {
             if response.count == 0{
                 return
             }
-            var albums: [AlbumsScreen] = []
+            var albums: [Album] = []
             
             response.forEach {
-                let album: AlbumsScreen = AlbumsScreen(data: $0)
+                let album: Album = Album(data: $0)
                 albums.append(album)
             }
             self.albums = albums

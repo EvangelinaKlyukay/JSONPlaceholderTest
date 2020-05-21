@@ -9,7 +9,7 @@
 import Foundation
 
 
-class AlbumsScreen {
+class Album {
     let id: Int?
     let title: String?
     

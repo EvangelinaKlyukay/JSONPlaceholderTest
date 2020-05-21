@@ -16,7 +16,7 @@ class User {
     let phone: String?
     let website: String?
     
-    private var albums: [AlbumsScreen]?
+    private var albums: [Album]?
     
     init(data: [String: Any]) {
         self.id = data["id"] as? Int
@@ -26,11 +26,11 @@ class User {
         self.website = data["website"] as? String
     }
     
-    func set(albums: [AlbumsScreen]) {
+    func set(albums: [Album]) {
         self.albums = albums
     }
     
-    func get(albumIndex index: Int) -> AlbumsScreen? {
+    func get(albumIndex index: Int) -> Album? {
         return albums?[index]
     }
     
