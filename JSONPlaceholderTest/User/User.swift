@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+struct User {
     
     let id: Int?
     let name: String?
@@ -26,7 +26,7 @@ class User {
         self.website = data["website"] as? String
     }
     
-    func set(albums: [Album]) {
+    mutating func set(albums: [Album]) {
         self.albums = albums
     }
     

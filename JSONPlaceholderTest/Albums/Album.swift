@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Album {
+struct Album {
     let id: Int?
     let title: String?
     
