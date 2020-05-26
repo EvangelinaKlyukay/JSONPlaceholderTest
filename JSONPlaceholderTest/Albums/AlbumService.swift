@@ -25,11 +25,11 @@ class AlbumService {
         self.network = network
     }
     
-    func get(albumIndex index: Int) -> Album? {
+    func album(albumIndex index: Int) -> Album? {
         return albums[index]
     }
     
-    func getAlbumsCount() -> Int {
+    func albumsCount() -> Int {
         return albums.count
     }
     

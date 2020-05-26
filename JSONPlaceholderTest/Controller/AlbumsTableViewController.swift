@@ -40,12 +40,12 @@ class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppRoot.shared.albumServise.getAlbumsCount()
+        return AppRoot.shared.albumServise.albumsCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let album = AppRoot.shared.albumServise.get(albumIndex: indexPath.row)
+        let album = AppRoot.shared.albumServise.album(albumIndex: indexPath.row)
         
         let userCellAlbum = dequeueAlbumCell(fromTableView: tableView)!
         
