@@ -14,8 +14,6 @@ class UsersTableViewController: UITableViewController, UserServiseDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = 150
-        
         AppRoot.shared.userService.delegate = self
     }
     
