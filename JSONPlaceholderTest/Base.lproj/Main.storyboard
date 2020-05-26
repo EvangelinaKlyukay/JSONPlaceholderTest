@@ -24,10 +24,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="0E3-NB-Tk1">
-                                            <rect key="frame" x="10" y="16.5" width="404" height="145"/>
+                                            <rect key="frame" x="10" y="20.5" width="404" height="137"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9w-dr-guc">
                                                     <rect key="frame" x="0.0" y="0.0" width="404" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20.5" id="uak-oo-2KC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -51,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovC-KV-lLY">
-                                                    <rect key="frame" x="0.0" y="124.5" width="404" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="124.5" width="404" height="12.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="pjX-w8-mzP"/>
                                                     </constraints>
@@ -64,9 +67,12 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="0E3-NB-Tk1" secondAttribute="trailing" id="0JE-PD-hXB"/>
                                         <constraint firstAttribute="trailing" secondItem="0E3-NB-Tk1" secondAttribute="trailing" id="2TB-Fv-QpS"/>
-                                        <constraint firstItem="0E3-NB-Tk1" firstAttribute="centerY" secondItem="YF2-bO-C5I" secondAttribute="centerY" id="OtW-77-8SQ"/>
-                                        <constraint firstItem="0E3-NB-Tk1" firstAttribute="leading" secondItem="YF2-bO-C5I" secondAttribute="leading" constant="10" id="inN-92-XzQ"/>
+                                        <constraint firstItem="0E3-NB-Tk1" firstAttribute="centerY" secondItem="YF2-bO-C5I" secondAttribute="centerY" id="DbU-lq-8U2"/>
+                                        <constraint firstAttribute="bottom" secondItem="0E3-NB-Tk1" secondAttribute="bottom" constant="20.5" id="UjG-FE-wA2"/>
+                                        <constraint firstItem="0E3-NB-Tk1" firstAttribute="leading" secondItem="YF2-bO-C5I" secondAttribute="leading" constant="10" id="doP-SW-fAa"/>
+                                        <constraint firstItem="0E3-NB-Tk1" firstAttribute="top" secondItem="YF2-bO-C5I" secondAttribute="top" constant="20.5" id="lCj-rd-K21"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
