@@ -12,7 +12,6 @@ import UIKit
 class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
     
     var userId: Int!
-    var albums: User!
     
     func albumsUpdated(sender: AlbumService) {
         DispatchQueue.main.async {
@@ -41,12 +40,12 @@ class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albums.getAlbumsCount()
+        return AppRoot.shared.albumServise.getAlbumsCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let album = albums.get(albumIndex: indexPath.row)
+        let album = AppRoot.shared.albumServise.get(albumIndex: indexPath.row)
         
         let userCellAlbum = dequeueAlbumCell(fromTableView: tableView)!
         

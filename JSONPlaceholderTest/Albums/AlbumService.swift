@@ -25,11 +25,20 @@ class AlbumService {
         self.network = network
     }
     
+    func get(albumIndex index: Int) -> Album? {
+        return albums[index]
+    }
+    
+    func getAlbumsCount() -> Int {
+        return albums.count
+    }
+    
     func loadAlbums(userId: Int) {
         self.network.request(path: "/users/\(userId)/albums", parameters: [:], onSuccess: { (response) in
             if response.count == 0{
                 return
             }
+            
             var albums: [Album] = []
             
             response.forEach {
@@ -38,6 +47,7 @@ class AlbumService {
             }
             self.albums = albums
             self.dalegate?.albumsUpdated(sender: self)
+            
         }, onFail: { (error) in
             print(error.localizedDescription)
         })

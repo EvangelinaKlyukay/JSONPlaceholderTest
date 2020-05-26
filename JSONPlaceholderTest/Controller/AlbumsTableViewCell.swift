@@ -13,7 +13,7 @@ class AlbumsTableViewCell: UITableViewCell {
     @IBOutlet var imagePreviewAlbums: WebImageView!
     @IBOutlet var titleLabelAlbums: UILabel!
     
-    weak var albumScreen: Album? {
+    var albumScreen: Album? {
         didSet {
             titleLabelAlbums.text = albumScreen?.title!
             //imagePreviewAlbums.load(url: imagePreviewAlbums!.url!)

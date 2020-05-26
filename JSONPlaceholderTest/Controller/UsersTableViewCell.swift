@@ -15,7 +15,7 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    weak var userScreen: User? {
+    var userScreen: User? {
         didSet {
             nameLabel.text = userScreen?.name
             phoneLabel.text = userScreen?.phone
