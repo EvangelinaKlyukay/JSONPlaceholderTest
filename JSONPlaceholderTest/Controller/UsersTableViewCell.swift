@@ -19,7 +19,7 @@ class UsersTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = userScreen?.name
             phoneLabel.text = userScreen?.phone
-            websiteLabel.text = userScreen?.website
+            websiteLabel.text = userScreen?.website?.absoluteString
             emailLabel.text = userScreen?.email
         }
     }

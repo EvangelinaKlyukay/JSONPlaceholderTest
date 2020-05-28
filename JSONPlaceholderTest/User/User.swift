@@ -14,13 +14,13 @@ struct User {
     let name: String?
     let email: String?
     let phone: String?
-    let website: String?
+    let website: URL?
     
     init(data: [String: Any]) {
         self.id = data["id"] as? Int
         self.name = data["name"] as? String
         self.email = data["email"] as? String
         self.phone = data["phone"] as? String
-        self.website = data["website"] as? String
+        self.website = URL(string: data["website"] as! String)
     }
 }
