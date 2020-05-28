@@ -31,7 +31,7 @@ class UsersTableViewController: UITableViewController, UserServiseDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppRoot.shared.userService.userCount()
+        return AppRoot.shared.userService.usersCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

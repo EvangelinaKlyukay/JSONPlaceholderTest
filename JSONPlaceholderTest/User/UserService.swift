@@ -42,9 +42,12 @@ class UserService {
         return users[index]
     }
     
-    func userCount() -> Int {
-        return users.count
+    var usersCount: Int {
+        get {
+            return users.count
+        }
     }
+    
     
     func add(user: User) {
         users.append(user)
