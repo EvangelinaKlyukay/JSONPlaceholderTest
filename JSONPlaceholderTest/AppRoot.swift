@@ -23,10 +23,10 @@ class AppRoot {
     private init () {
         if let serverUrl = URL(string: AppRoot.serverAddress) {
             network = NetworkService(serverUrl: serverUrl)
-        }else{
+        } else {
             network = nil
             
-            print("Can't initialize network with url:", AppRoot.serverAddress)
+            fatalError("Can't initialize network with url:\(AppRoot.serverAddress)")
         }
         
         userService = UserService(network: network!)
