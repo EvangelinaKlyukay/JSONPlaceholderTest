@@ -28,8 +28,9 @@ class UserService {
             }
             
             response.forEach {
-                let user: User = User(data: $0)
-                self.add(user: user)
+                if let user: User = User(data: $0) {
+                    self.add(user: user)
+                }
             }
             self.delegate?.usersUpdated(sender: self)
             
@@ -47,7 +48,6 @@ class UserService {
             return users.count
         }
     }
-    
     
     func add(user: User) {
         users.append(user)
