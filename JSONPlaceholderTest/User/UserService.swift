@@ -8,20 +8,16 @@
 
 import Foundation
 
-protocol UserServiseDelegate: class {
-    
-    func usersUpdated(sender: UserService)
-}
-
 class UserService {
-    
-    weak var delegate: UserServiseDelegate?
     
     private let network: NetworkService
     private var users = [User]()
     
     init(network: NetworkService) {
         self.network = network
+    }
+    
+    func loadUsers(onSuccess: (([User]) -> Void)?, onFail: ((Error) -> Void)?) {
         self.network.request(path: "/users", parameters: [:], onSuccess: { (response) in
             if response.count == 0 {
                 return
@@ -32,11 +28,9 @@ class UserService {
                     self.add(user: user)
                 }
             }
-            self.delegate?.usersUpdated(sender: self)
+            onSuccess?(self.users)
             
-        }, onFail: { (error) in
-            print(error.localizedDescription)
-        })
+        }, onFail: { (error) in onFail?(error) })
     }
     
     func user(by index: Int) -> User? {

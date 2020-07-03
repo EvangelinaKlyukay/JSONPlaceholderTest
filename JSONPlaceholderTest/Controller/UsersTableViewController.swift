@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import MessageUI
+//import MessageUI
 
-class UsersTableViewController: UITableViewController, UserServiseDelegate {
+class UsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.userService.delegate = self
+        AppRoot.shared.userService.loadUsers(onSuccess: usersUpdated, onFail: userLoadFailed)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,9 +55,14 @@ class UsersTableViewController: UITableViewController, UserServiseDelegate {
         return nil
     }
     
-    func usersUpdated(sender: UserService) {
+    func usersUpdated(users: [User]) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
+    
+    func userLoadFailed(error: Error) {
+        print(error)
+    }
+    
 }
