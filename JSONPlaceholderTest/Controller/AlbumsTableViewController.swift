@@ -9,28 +9,36 @@
 import UIKit
 
 
-class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
+class AlbumsTableViewController: UITableViewController {
     
     var userId: Int!
     
-    func albumsUpdated(sender: AlbumService) {
+    private var albums:[Album]?
+    
+    func albumsUpdated(albums: [Album]) {
         DispatchQueue.main.async {
+            self.albums = albums
             self.tableView.reloadData()
         }
     }
     
+    func albumLoadFailed(error: Error) {
+           print(error)
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.albumServise.dalegate = self
-        AppRoot.shared.albumServise.loadAlbums(userId: self.userId)
+        AppRoot.shared.albumServise.loadAlbums(userId: userId, onSuccess: albumsUpdated, onFail: albumLoadFailed)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let index = (sender as! IndexPath).row
-        let album = AppRoot.shared.userService.user(by: index)
-        (segue.destination as! ImageTableViewController).album = album!
+        if let albums = self.albums {
+            let album = albums[index]
+            (segue.destination as! ImageTableViewController).album = album
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -40,16 +48,14 @@ class AlbumsTableViewController: UITableViewController, AlbumServiceDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppRoot.shared.albumServise.albumsCount()
+        return albums?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let album = AppRoot.shared.albumServise.album(albumIndex: indexPath.row)
-        
+    
         let userCellAlbum = dequeueAlbumCell(fromTableView: tableView)!
         
-        if let album = album {
+        if let album = albums?[indexPath.row] {
             userCellAlbum.albumScreen = album
         }
         

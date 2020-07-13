@@ -8,32 +8,15 @@
 
 import Foundation
 
-protocol AlbumServiceDelegate: class {
-    
-    func albumsUpdated(sender: AlbumService)
-    
-}
-
 class AlbumService {
     
-    weak var dalegate: AlbumServiceDelegate?
-    
     private let network: NetworkService
-    private var albums = [Album]()
     
     init(network: NetworkService) {
         self.network = network
     }
     
-    func album(albumIndex index: Int) -> Album? {
-        return albums[index]
-    }
-    
-    func albumsCount() -> Int {
-        return albums.count
-    }
-    
-    func loadAlbums(userId: Int) {
+    func loadAlbums(userId: Int, onSuccess: (([Album]) -> Void)?, onFail: ((Error) -> Void)?) {
         self.network.request(path: "/users/\(userId)/albums", parameters: [:], onSuccess: { (response) in
             if response.count == 0{
                 return
@@ -42,11 +25,11 @@ class AlbumService {
             var albums: [Album] = []
             
             response.forEach {
-                let album: Album = Album(data: $0)
+                let album: Album = Album(data: $0)!
                 albums.append(album)
             }
-            self.albums = albums
-            self.dalegate?.albumsUpdated(sender: self)
+            
+            onSuccess?(albums)
             
         }, onFail: { (error) in
             print(error.localizedDescription)

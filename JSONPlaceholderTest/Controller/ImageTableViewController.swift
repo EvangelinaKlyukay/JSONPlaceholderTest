@@ -11,6 +11,6 @@ import UIKit
 
 class ImageTableViewController: UITableViewController {
     
-    var album: User!
+    var album: Album!
     
 }

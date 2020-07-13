@@ -10,11 +10,15 @@ import Foundation
 
 
 struct Album {
-    let id: Int?
+    let id: Int
     let title: String?
     
-    init(data: [String: Any]) {
-        self.id = data["id"] as? Int
+    init?(data: [String: Any]) {
+         guard let id = data["id"] as? Int else {
+                   return nil
+               }
+        self.id = id
         self.title = data["title"] as? String
     }
+    
 }
