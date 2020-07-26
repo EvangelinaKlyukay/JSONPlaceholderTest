@@ -76,7 +76,6 @@
                                     <outlet property="nameLabel" destination="l9w-dr-guc" id="0Bb-sY-dzs"/>
                                     <outlet property="phoneLabel" destination="v5g-iR-FFF" id="4Z6-74-OoS"/>
                                     <outlet property="websiteLabel" destination="lP2-xT-gRG" id="EaU-NR-hSF"/>
-                                    <segue destination="EYm-cD-na0" kind="show" identifier="showAlbum" id="n6O-7U-qdA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,6 +85,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="VrY-iY-fox"/>
+                    <connections>
+                        <segue destination="EYm-cD-na0" kind="show" identifier="showAlbum" id="4pa-zp-o8m"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjF-Eo-w6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,36 +102,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Albums" rowHeight="210" id="EWf-d0-ohH" customClass="AlbumsTableViewCell" customModule="JSONPlaceholderTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="210"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Albums" rowHeight="157" id="EWf-d0-ohH" customClass="AlbumsTableViewCell" customModule="JSONPlaceholderTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="157"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWf-d0-ohH" id="Xjs-k6-rxk" customClass="AlbumsTableViewCell" customModule="JSONPlaceholderTest" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dQa-3p-Nxr" customClass="WebImageView" customModule="JSONPlaceholderTest" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="21" width="150" height="150"/>
+                                            <rect key="frame" x="20" y="4" width="150" height="149"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="4oh-k4-jE3"/>
+                                                <constraint firstAttribute="width" constant="150" id="6Ad-gl-x95"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDD-AJ-GpV">
-                                            <rect key="frame" x="186" y="95" width="42" height="20.5"/>
+                                            <rect key="frame" x="187" y="69" width="217" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="centerX" secondItem="Xjs-k6-rxk" secondAttribute="centerX" id="5GT-2a-0ob"/>
-                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="centerY" secondItem="Xjs-k6-rxk" secondAttribute="centerY" id="PEG-sD-6mi"/>
-                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="leading" secondItem="dQa-3p-Nxr" secondAttribute="trailing" constant="16" id="PX1-Tx-LMh"/>
-                                        <constraint firstItem="dQa-3p-Nxr" firstAttribute="top" secondItem="Xjs-k6-rxk" secondAttribute="topMargin" constant="10" id="fIH-tP-8CC"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dQa-3p-Nxr" secondAttribute="bottom" constant="28" id="hcS-2w-jWH"/>
-                                        <constraint firstItem="dQa-3p-Nxr" firstAttribute="leading" secondItem="Xjs-k6-rxk" secondAttribute="leadingMargin" id="phx-Sz-gNs"/>
+                                        <constraint firstAttribute="trailing" secondItem="oDD-AJ-GpV" secondAttribute="trailing" constant="10" id="2GP-ag-U5a"/>
+                                        <constraint firstItem="dQa-3p-Nxr" firstAttribute="leading" secondItem="Xjs-k6-rxk" secondAttribute="leading" constant="20" id="JN7-yj-fu0"/>
+                                        <constraint firstAttribute="bottom" secondItem="oDD-AJ-GpV" secondAttribute="bottom" constant="67" id="JdU-2x-XkR"/>
+                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="trailing" secondItem="Xjs-k6-rxk" secondAttribute="trailingMargin" constant="10" id="N1Q-v2-6W0"/>
+                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="top" secondItem="Xjs-k6-rxk" secondAttribute="top" constant="69" id="RQQ-Cf-7d0"/>
+                                        <constraint firstItem="oDD-AJ-GpV" firstAttribute="leading" secondItem="dQa-3p-Nxr" secondAttribute="trailing" constant="17" id="XCa-LQ-1bF"/>
+                                        <constraint firstItem="dQa-3p-Nxr" firstAttribute="top" secondItem="Xjs-k6-rxk" secondAttribute="top" constant="4" id="eCS-sB-LDF"/>
+                                        <constraint firstAttribute="bottom" secondItem="dQa-3p-Nxr" secondAttribute="bottom" constant="4" id="rR1-8O-Ju5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imagePreviewAlbums" destination="dQa-3p-Nxr" id="8WM-lO-KwR"/>
+                                    <outlet property="photoPreviewAlbums" destination="dQa-3p-Nxr" id="8WM-lO-KwR"/>
                                     <outlet property="titleLabelAlbums" destination="oDD-AJ-GpV" id="Uy6-4i-ovx"/>
-                                    <segue destination="DFL-xY-zTV" kind="show" identifier="showImage" id="PZe-qc-ET7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -139,6 +146,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Albums" id="qch-hB-ptm"/>
+                    <connections>
+                        <segue destination="DFL-xY-zTV" kind="show" identifier="showImage" id="Cxw-93-9kU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLV-Gy-rj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,13 +157,13 @@
         <!--Images-->
         <scene sceneID="Bh8-8z-RST">
             <objects>
-                <tableViewController id="DFL-xY-zTV" customClass="ImageTableViewController" customModule="JSONPlaceholderTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DFL-xY-zTV" customClass="PhotoTableViewController" customModule="JSONPlaceholderTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="C8r-A1-3nT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="519" id="caE-jj-SYt">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Photos" rowHeight="519" id="caE-jj-SYt" customClass="PhotoTableViewCell" customModule="JSONPlaceholderTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="519"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="caE-jj-SYt" id="iTg-5b-1HK">
@@ -180,6 +190,10 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="s3d-na-A4Y" secondAttribute="bottom" constant="25" id="kPH-zl-8Fu"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="photo" destination="c4e-80-bxH" id="qTq-3Q-0o1"/>
+                                    <outlet property="titlePhoto" destination="s3d-na-A4Y" id="Zsg-0Z-7ST"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

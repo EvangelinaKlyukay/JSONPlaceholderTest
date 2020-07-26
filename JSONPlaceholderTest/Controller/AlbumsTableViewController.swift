@@ -23,8 +23,8 @@ class AlbumsTableViewController: UITableViewController {
     }
     
     func albumLoadFailed(error: Error) {
-           print(error)
-       }
+        print(error)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class AlbumsTableViewController: UITableViewController {
         let index = (sender as! IndexPath).row
         if let albums = self.albums {
             let album = albums[index]
-            (segue.destination as! ImageTableViewController).album = album
+            (segue.destination as! PhotoTableViewController).album = album
         }
     }
     
@@ -52,7 +52,7 @@ class AlbumsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
         let userCellAlbum = dequeueAlbumCell(fromTableView: tableView)!
         
         if let album = albums?[indexPath.row] {
@@ -69,6 +69,4 @@ class AlbumsTableViewController: UITableViewController {
         
         return nil
     }
-    
-    
 }

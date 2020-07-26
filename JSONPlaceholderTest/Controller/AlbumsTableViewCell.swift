@@ -9,16 +9,16 @@
 import UIKit
 
 class AlbumsTableViewCell: UITableViewCell {
-
-    @IBOutlet var imagePreviewAlbums: WebImageView!
+    
     @IBOutlet var titleLabelAlbums: UILabel!
+    @IBOutlet var photoPreviewAlbums: WebImageView!
+   
     
     var albumScreen: Album? {
         didSet {
             titleLabelAlbums.text = albumScreen?.title!
-            //imagePreviewAlbums.load(url: imagePreviewAlbums!.url!)
-            
+            let photo = albumScreen?.get(photoIndex: 0)
+            photoPreviewAlbums.load(url: (photo?.thumbnailUrl)!)
         }
     }
-    
 }

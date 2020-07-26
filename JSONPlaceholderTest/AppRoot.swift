@@ -12,11 +12,13 @@ import Foundation
 class AppRoot {
     
     private static let serverAddress = "https://jsonplaceholder.typicode.com"
-       
+    
+    //TODO: Может перенести в AppDelegate? Спросить у Ильи как это лучше сделать.
     public static let shared = AppRoot()
     
     var userService: UserService
     var albumServise: AlbumService
+    var photoService: PhotoService
     
     private let network: NetworkService?
     
@@ -31,6 +33,7 @@ class AppRoot {
         
         userService = UserService(network: network!)
         albumServise = AlbumService(network: network!)
+        photoService = PhotoService(network: network!)
         
     }
 }
