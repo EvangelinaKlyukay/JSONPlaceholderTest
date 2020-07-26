@@ -15,21 +15,17 @@ class AlbumsTableViewController: UITableViewController {
     
     private var albums:[Album]?
     
-    func albumsUpdated(albums: [Album]) {
-        DispatchQueue.main.async {
-            self.albums = albums
-            self.tableView.reloadData()
-        }
-    }
-    
-    func albumLoadFailed(error: Error) {
-        print(error)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.albumServise.loadAlbums(userId: userId, onSuccess: albumsUpdated, onFail: albumLoadFailed)
+        AppRoot.shared.albumServise.loadAlbums(userId: userId, onSuccess: { (albums) in
+            DispatchQueue.main.async {
+                self.albums = albums
+                self.tableView.reloadData()
+            }
+        }, onFail: { (error) in
+            print(error)
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

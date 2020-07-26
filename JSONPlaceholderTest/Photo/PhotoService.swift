@@ -12,6 +12,8 @@ class PhotoService {
     
     private let network: NetworkService
     
+    private var photos: [Int: [Photo]] = [:] // self.photos[albumId] -> [Photo]
+    
     init(network: NetworkService) {
         
         self.network = network

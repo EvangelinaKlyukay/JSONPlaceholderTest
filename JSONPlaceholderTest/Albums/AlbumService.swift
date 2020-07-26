@@ -12,11 +12,18 @@ class AlbumService {
     
     private let network: NetworkService
     
+    private var albums: [Int: [Album]] = [:] // albums[userId] -> [Album]
+    
     init(network: NetworkService) {
         self.network = network
     }
     
     func loadAlbums(userId: Int, onSuccess: (([Album]) -> Void)?, onFail: ((Error) -> Void)?) {
+        if let albums = self.albums[userId] {
+            onSuccess?(albums)
+            return
+        }
+        
         self.network.request(path: "/users/\(userId)/albums", parameters: [:], onSuccess: { (response) in
             if response.count == 0{
                 return
