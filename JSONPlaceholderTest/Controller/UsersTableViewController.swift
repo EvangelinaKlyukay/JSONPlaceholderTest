@@ -13,7 +13,13 @@ class UsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.userService.loadUsers(onSuccess: usersUpdated, onFail: userLoadFailed)
+        AppRoot.shared.userService.loadUsers(onSuccess: { (photos) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }) { (error) in
+            print(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,15 +59,4 @@ class UsersTableViewController: UITableViewController {
         
         return nil
     }
-    
-    func usersUpdated(users: [User]) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    func userLoadFailed(error: Error) {
-        print(error)
-    }
-    
 }

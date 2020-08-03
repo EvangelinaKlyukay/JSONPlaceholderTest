@@ -22,6 +22,11 @@ class PhotoService {
  
     func loadPhotos(albumId: Int, onSuccess: (([Photo]) -> Void)?, onFail: ((Error) -> Void)?) {
         
+        if let photos = self.photos[albumId] {
+                   onSuccess?(photos)
+                   return
+               }
+        
         self.network.request(path: "/albums/\(albumId)/photos", parameters: [:], onSuccess: { (response) in
             if response.count == 0 {
                 return

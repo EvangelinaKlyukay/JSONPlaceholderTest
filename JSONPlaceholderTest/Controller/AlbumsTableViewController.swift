@@ -33,7 +33,7 @@ class AlbumsTableViewController: UITableViewController {
         let index = (sender as! IndexPath).row
         if let albums = self.albums {
             let album = albums[index]
-            (segue.destination as! PhotoTableViewController).album = album
+            (segue.destination as! PhotoTableViewController).albumId = album.id
         }
     }
     
