@@ -17,8 +17,8 @@ class PhotoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        AppRoot.shared.photoService.loadPhotos(albumId: albumId, onSuccess: { (photos) in
+        
+        AppRoot.shared.photoService.loadPhotos(albumId: albumId, onSuccess: { photos in
             DispatchQueue.main.async {
                 self.photos = photos
                 self.tableView.reloadData()
@@ -27,25 +27,24 @@ class PhotoTableViewController: UITableViewController {
             print(error)
         }
     }
-         
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
-        
-                 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                  
+        
         let userCellPhoto = dequeueImageCell(fromTableView: tableView)!
-                  
+        
         if let photo = photos?[indexPath.row] {
-                    
-            userCellPhoto.photoScreen = photo
-                    
+            
+            userCellPhoto.photos = photo
+            
         }
-                
+        
         return userCellPhoto
     }
-             
+    
     func dequeueImageCell(fromTableView tableView: UITableView) -> PhotoTableViewCell? {
         if let cellPhoto = tableView.dequeueReusableCell(withIdentifier: "Photos") as? PhotoTableViewCell {
             return cellPhoto

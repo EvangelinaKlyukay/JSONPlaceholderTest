@@ -18,7 +18,7 @@ class AlbumsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.albumServise.loadAlbums(userId: userId, onSuccess: { (albums) in
+        AppRoot.shared.albumServise.loadAlbums(userId: userId, onSuccess: { albums in
             DispatchQueue.main.async {
                 self.albums = albums
                 self.tableView.reloadData()

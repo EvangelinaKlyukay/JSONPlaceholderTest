@@ -10,11 +10,14 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
     
+    private var users: [User]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppRoot.shared.userService.loadUsers(onSuccess: { (photos) in
+        AppRoot.shared.userService.loadUsers(onSuccess: { users in
             DispatchQueue.main.async {
+                self.users = users
                 self.tableView.reloadData()
             }
         }) { (error) in

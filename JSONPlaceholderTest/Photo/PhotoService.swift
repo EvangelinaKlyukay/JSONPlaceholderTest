@@ -19,13 +19,13 @@ class PhotoService {
         self.network = network
         
     }
- 
+    
     func loadPhotos(albumId: Int, onSuccess: (([Photo]) -> Void)?, onFail: ((Error) -> Void)?) {
         
         if let photos = self.photos[albumId] {
-                   onSuccess?(photos)
-                   return
-               }
+            onSuccess?(photos)
+            return
+        }
         
         self.network.request(path: "/albums/\(albumId)/photos", parameters: [:], onSuccess: { (response) in
             if response.count == 0 {
@@ -39,7 +39,7 @@ class PhotoService {
                 photos.append(image)
             }
             onSuccess?(photos)
-           
+            
             
         }, onFail: { (error) in
             print(error.localizedDescription)

@@ -14,10 +14,10 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var photo: WebImageView!
     @IBOutlet weak var titlePhoto: UILabel!
     
-    weak var photoScreen: Photo? {
-            didSet {
-                titlePhoto.text = photoScreen?.title!
-                photo.load(url: photoScreen!.url!)
+    weak var photos: Photo? {
+        didSet {
+            titlePhoto.text = photos?.title!
+            photo.load(url: photos!.url!)
         }
     }
 }
