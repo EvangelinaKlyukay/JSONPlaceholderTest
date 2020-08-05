@@ -112,12 +112,9 @@
 		A6429A3F246EC3CC008840C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A6429A27246EBA61008840C1 /* UsersTableViewController.swift */,
-				A6429A40246EC3F3008840C1 /* UsersTableViewCell.swift */,
-				A6429A4C247278E9008840C1 /* AlbumsTableViewController.swift */,
-				A6429A4E24729717008840C1 /* AlbumsTableViewCell.swift */,
-				A6429A522472BD69008840C1 /* PhotoTableViewController.swift */,
-				A6B2D3A924BC831F00126F7A /* PhotoTableViewCell.swift */,
+				A6B4CCE424DAC6E900B06A49 /* User */,
+				A6B4CCE524DAC70400B06A49 /* Album */,
+				A6B4CCE624DAC72B00B06A49 /* Photo */,
 				A6429A502472B470008840C1 /* WebImageView.swift */,
 			);
 			path = Controller;
@@ -145,6 +142,33 @@
 			children = (
 				A6B2D3A424BC4CFC00126F7A /* Photos.swift */,
 				A6B2D3A724BC4E4600126F7A /* PhotoService.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		A6B4CCE424DAC6E900B06A49 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A6429A27246EBA61008840C1 /* UsersTableViewController.swift */,
+				A6429A40246EC3F3008840C1 /* UsersTableViewCell.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		A6B4CCE524DAC70400B06A49 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				A6429A4C247278E9008840C1 /* AlbumsTableViewController.swift */,
+				A6429A4E24729717008840C1 /* AlbumsTableViewCell.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		A6B4CCE624DAC72B00B06A49 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				A6429A522472BD69008840C1 /* PhotoTableViewController.swift */,
+				A6B2D3A924BC831F00126F7A /* PhotoTableViewCell.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";

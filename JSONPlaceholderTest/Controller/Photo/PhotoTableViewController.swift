@@ -11,45 +11,40 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
     
-    var album: Album!
+    var albumId: Int!
     
     private var photos:[Photo]?
     
-    func photosUpdated(photos: [Photo]) {
-        DispatchQueue.main.async {
-            self.album.set(photos: photos)
-            self.tableView.reloadData()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        AppRoot.shared.photoService.loadPhotos(albumId: albumId, onSuccess: { photos in
+            DispatchQueue.main.async {
+                self.photos = photos
+                self.tableView.reloadData()
+            }
+        }) { (error) in
+            print(error)
         }
     }
     
-    func photoLoadFailed(error: Error) {
-              print(error)
-          }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        AppRoot.shared.photoService.loadPhotos(albumId: album.id, onSuccess: photosUpdated, onFail: photoLoadFailed)
-    }
-         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return album.getPhotosCount()
+        return photos?.count ?? 0
     }
-        
-                 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                  
+        
         let userCellPhoto = dequeueImageCell(fromTableView: tableView)!
-                  
+        
         if let photo = photos?[indexPath.row] {
-                    
-            userCellPhoto.photoScreen = photo
-                    
+            
+            userCellPhoto.photos = photo
+            
         }
-                
+        
         return userCellPhoto
     }
-             
+    
     func dequeueImageCell(fromTableView tableView: UITableView) -> PhotoTableViewCell? {
         if let cellPhoto = tableView.dequeueReusableCell(withIdentifier: "Photos") as? PhotoTableViewCell {
             return cellPhoto

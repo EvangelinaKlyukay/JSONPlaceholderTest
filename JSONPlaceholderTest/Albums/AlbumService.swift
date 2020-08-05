@@ -12,27 +12,31 @@ class AlbumService {
     
     private let network: NetworkService
     
+    private var albums: [Int: [Album]] = [:]
+    
     init(network: NetworkService) {
         self.network = network
     }
     
     func loadAlbums(userId: Int, onSuccess: (([Album]) -> Void)?, onFail: ((Error) -> Void)?) {
+        if let albums = self.albums[userId] {
+            onSuccess?(albums)
+            return
+        }
+        
         self.network.request(path: "/users/\(userId)/albums", parameters: [:], onSuccess: { (response) in
-            if response.count == 0{
-                return
-            }
-            
             var albums: [Album] = []
             
-            response.forEach {
-                let album: Album = Album(data: $0)!
-                albums.append(album)
+            if (response.count > 0) {
+                response.forEach {
+                    let album: Album = Album(data: $0)!
+                    albums.append(album)
+                }
             }
             
+            self.albums[userId] = albums
             onSuccess?(albums)
             
-        }, onFail: { (error) in
-            print(error.localizedDescription)
-        })
+        }, onFail: onFail)
     }
 }
