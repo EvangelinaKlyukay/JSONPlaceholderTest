@@ -28,8 +28,10 @@ class UsersTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let index = (sender as! IndexPath).row
-        let user = AppRoot.shared.userService.user(by: index)
-        (segue.destination as! AlbumsTableViewController).userId = user!.id
+        if let users = self.users {
+            let user = users[index]
+            (segue.destination as! AlbumsTableViewController).userId = user.id
+        } 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
