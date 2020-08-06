@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="134.59821428571428"/>
         </scene>
-        <!--Albums Table View Controller-->
+        <!--Albums-->
         <scene sceneID="bcP-XK-awF">
             <objects>
                 <tableViewController id="7OG-ay-zJH" customClass="AlbumsTableViewController" customModule="JSONPlaceholderTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                             <outlet property="delegate" destination="7OG-ay-zJH" id="5dO-sk-HHC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EX7-zw-GNm"/>
+                    <navigationItem key="navigationItem" title="Albums" id="EX7-zw-GNm"/>
                     <connections>
                         <segue destination="DFL-xY-zTV" kind="show" identifier="showImage" id="d4O-y8-nHG"/>
                     </connections>
@@ -170,13 +170,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4e-80-bxH" customClass="WebImageView" customModule="JSONPlaceholderTest" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="16" width="398" height="438"/>
+                                            <rect key="frame" x="8" y="16" width="398" height="398"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="c4e-80-bxH" secondAttribute="height" multiplier="199:219" id="ML3-ds-YNX"/>
+                                                <constraint firstAttribute="width" secondItem="c4e-80-bxH" secondAttribute="height" multiplier="1:1" id="ML3-ds-YNX"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3d-na-A4Y">
-                                            <rect key="frame" x="20" y="476" width="374" height="21"/>
+                                            <rect key="frame" x="20" y="436" width="374" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -204,10 +204,45 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Images" id="Mum-pv-EIJ"/>
+                    <connections>
+                        <segue destination="mDV-h5-Rqa" kind="show" identifier="showPhoto" id="Yv2-QO-MSy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6s-X9-5DI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3131.884057971015" y="134.59821428571428"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="tPy-IH-9Su">
+            <objects>
+                <viewController id="mDV-h5-Rqa" customClass="PhotoViewController" customModule="JSONPlaceholderTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f3g-Q3-BXu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ZA-3A-RDX" customClass="WebImageView" customModule="JSONPlaceholderTest" customModuleProvider="target">
+                                <rect key="frame" x="5" y="247" width="404" height="404"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9ZA-3A-RDX" secondAttribute="height" multiplier="1:1" id="UYe-66-66b"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Dgu-Lf-gvv" firstAttribute="trailing" secondItem="9ZA-3A-RDX" secondAttribute="trailing" constant="5" id="7Bm-0e-jDT"/>
+                            <constraint firstItem="9ZA-3A-RDX" firstAttribute="top" secondItem="Dgu-Lf-gvv" secondAttribute="top" constant="159" id="Gko-el-Yha"/>
+                            <constraint firstItem="9ZA-3A-RDX" firstAttribute="leading" secondItem="Dgu-Lf-gvv" secondAttribute="leading" constant="5" id="aps-Ir-tBp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dgu-Lf-gvv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ofs-xI-HYN"/>
+                    <connections>
+                        <outlet property="photoImage" destination="9ZA-3A-RDX" id="wVM-ku-eyL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nf9-GM-Vek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3908.6956521739135" y="133.92857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FtV-Cm-xnm">

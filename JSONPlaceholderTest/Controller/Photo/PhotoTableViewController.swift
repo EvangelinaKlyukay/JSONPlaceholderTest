@@ -32,6 +32,22 @@ class PhotoTableViewController: UITableViewController {
         return photos?.count ?? 0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "showPhoto" {
+            let photoController = segue.destination as! PhotoViewController
+            photoController.photos = sender as? Photo
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = photos?[indexPath.item]
+        self.performSegue(withIdentifier: "showPhoto", sender: item)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let userCellPhoto = dequeueImageCell(fromTableView: tableView)!
