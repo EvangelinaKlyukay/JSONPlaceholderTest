@@ -221,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ZA-3A-RDX" customClass="WebImageView" customModule="JSONPlaceholderTest" customModuleProvider="target">
-                                <rect key="frame" x="5" y="247" width="404" height="404"/>
+                                <rect key="frame" x="5" y="98" width="404" height="404"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9ZA-3A-RDX" secondAttribute="height" multiplier="1:1" id="UYe-66-66b"/>
                                 </constraints>
@@ -230,7 +230,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Dgu-Lf-gvv" firstAttribute="trailing" secondItem="9ZA-3A-RDX" secondAttribute="trailing" constant="5" id="7Bm-0e-jDT"/>
-                            <constraint firstItem="9ZA-3A-RDX" firstAttribute="top" secondItem="Dgu-Lf-gvv" secondAttribute="top" constant="159" id="Gko-el-Yha"/>
+                            <constraint firstItem="9ZA-3A-RDX" firstAttribute="top" secondItem="Dgu-Lf-gvv" secondAttribute="top" constant="10" id="Gko-el-Yha"/>
                             <constraint firstItem="9ZA-3A-RDX" firstAttribute="leading" secondItem="Dgu-Lf-gvv" secondAttribute="leading" constant="5" id="aps-Ir-tBp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dgu-Lf-gvv"/>

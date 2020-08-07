@@ -31,7 +31,7 @@ class UsersTableViewController: UITableViewController {
         if let users = self.users {
             let user = users[index]
             (segue.destination as! AlbumsTableViewController).userId = user.id
-        } 
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
